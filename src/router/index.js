@@ -13,8 +13,8 @@ const routes = [
     component: Home
   },
   {
-    path: '/event/:eventId',
-    name: 'event',
+    path: '/event/:id',
+    name: 'event-show',
     component: Event
   },
   {

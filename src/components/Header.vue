@@ -3,8 +3,8 @@
     <router-link to="/">Vue Events</router-link>
     <div class="spacer" />
     <nav class="nav">
-      <router-link :to="{ name: 'home'}">List</router-link>
-      <router-link :to="{ name: 'event-create'}">Create</router-link>
+      <router-link :to="{ name: 'home' }">List</router-link>
+      <router-link :to="{ name: 'event-create' }">Create</router-link>
     </nav>
   </header>
 </template>

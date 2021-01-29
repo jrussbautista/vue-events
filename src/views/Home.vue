@@ -1,15 +1,40 @@
 <template>
-  <div class="home">
-    <h1>Home page</h1>
-    <h1>
-      <router-link :to="{ name: 'event', params: { eventId: 2 }}">Event 2</router-link>
-    </h1>
+  <div class="container">
+    <event-card
+      v-for="event in events"
+      :key="event.id"
+      :event="event"
+    ></event-card>
   </div>
 </template>
 
 <script>
+import EventCard from '@/components/EventCard'
+import EventService from '@/services/EventService'
+
 export default {
   name: 'Home',
-  components: {}
+  components: {
+    EventCard
+  },
+  data() {
+    return {
+      count: 0,
+      events: []
+    }
+  },
+  created() {
+    this.fetchEvents()
+  },
+  methods: {
+    async fetchEvents() {
+      try {
+        const results = await EventService.getEvents()
+        this.events = results.data
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
 }
 </script>
